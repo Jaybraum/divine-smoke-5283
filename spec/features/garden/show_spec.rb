@@ -28,8 +28,7 @@ RSpec.describe 'garden show page' do
 
   it 'displays list of all the plants in plots' do
     visit "/gardens/#{@garden.id}"
-    save_and_open_page
-
+    
     expect(page.all(".plant")[0].text).to eq(@plant_2.name)
     expect(page.all(".plant")[1].text).to eq(@plant_6.name)
     expect(page.all(".plant")[2].text).to eq(@plant_4.name)
