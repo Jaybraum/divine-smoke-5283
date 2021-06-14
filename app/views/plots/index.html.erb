@@ -5,7 +5,7 @@
     <h3>Plot #:<%= plot.number %></h3>
     <% plot.plants.each do |plant|%>
        <div id="plant-<%= plant.id %>">
-         <p><%= plant.name %>
+         <p><%= plant.name %><%= button_to 'Remove plant', "/planted/#{plant.id}", method: :delete, local: true %>
          </p>
        </div>
     <% end %>
