@@ -6,11 +6,11 @@ RSpec.describe 'plots index page' do
     @garden_2 = Garden.create!(name: 'Ana Gardens', organic: false)
 
 
-    @plot_1 = @garden_1.plots.create!(number: 1, size: "Large", direction:'North')
-    @plot_2 = @garden_1.plots.create!(number: 2, size: "Small", direction:'East')
-    @plot_3 = @garden_1.plots.create!(number: 3, size: "Medium", direction:'West')
-    @plot_4 = @garden_2.plots.create!(number: 1, size: "Large", direction:'North')
-    @plot_5 = @garden_2.plots.create!(number: 2, size: "Small", direction:'East')
+    @plot_1 = @garden_1.plots.create!(number: 101, size: "Large", direction:'North')
+    @plot_2 = @garden_1.plots.create!(number: 102, size: "Small", direction:'East')
+    @plot_3 = @garden_1.plots.create!(number: 103, size: "Medium", direction:'West')
+    @plot_4 = @garden_2.plots.create!(number: 11, size: "Large", direction:'North')
+    @plot_5 = @garden_2.plots.create!(number: 12, size: "Small", direction:'East')
 
     @plant_1 = Plant.create!(name: 'Rose', description: "loves the dirt", days_to_harvest: 10)
     @plant_2 = Plant.create!(name: 'Dandelion', description: "loves sunlight", days_to_harvest: 60)
