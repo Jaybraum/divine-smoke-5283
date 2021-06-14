@@ -11,11 +11,11 @@ RSpec.describe 'garden show page' do
     @plot_5 = @garden.plots.create!(number: 12, size: "Small", direction:'East')
 
     @plant_1 = Plant.create!(name: 'Rose', description: "loves the dirt", days_to_harvest: 120)
-    @plant_2 = Plant.create!(name: 'Dandelion', description: "loves sunlight", days_to_harvest: 60)
+    @plant_2 = Plant.create!(name: 'Dandelion', description: "loves sunlight", days_to_harvest: 80)
     @plant_3 = Plant.create!(name: 'Pepper', description: "Needs a lot of water", days_to_harvest: 190)
     @plant_4 = Plant.create!(name: 'Cucumber', description: "Needs a lot of water", days_to_harvest: 30)
-    @plant_5 = Plant.create!(name: 'Rosemary', description: "loves the dirt", days_to_harvest: 30)
-    @plant_6 = Plant.create!(name: 'Pumpkin', description: "Needs Sun", days_to_harvest: 60)
+    @plant_5 = Plant.create!(name: 'Rosemary', description: "loves the dirt", days_to_harvest: 20)
+    @plant_6 = Plant.create!(name: 'Pumpkin', description: "Needs Sun", days_to_harvest: 70)
 
 
     Planted.create!(plot:@plot_1, plant: @plant_1)
@@ -28,10 +28,11 @@ RSpec.describe 'garden show page' do
 
   it 'displays list of all the plants in plots' do
     visit "/gardens/#{@garden.id}"
+    save_and_open_page
 
     expect(page.all(".plant")[0].text).to eq(@plant_2.name)
-    expect(page.all(".plant")[1].text).to eq(@plant_4.name)
-    expect(page.all(".plant")[2].text).to eq(@plant_5.name)
-    expect(page.all(".plant")[3].text).to eq(@plant_6.name)
+    expect(page.all(".plant")[1].text).to eq(@plant_6.name)
+    expect(page.all(".plant")[2].text).to eq(@plant_4.name)
+    expect(page.all(".plant")[3].text).to eq(@plant_5.name)
   end
 end
