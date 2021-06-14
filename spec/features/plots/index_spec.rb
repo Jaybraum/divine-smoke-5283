@@ -41,12 +41,13 @@ RSpec.describe 'plots index page' do
   it 'has button to remove plant from plot' do
     visit '/plots'
 
+    expect(page).to have_content(@plant_1.name)
+
     within "#plant-#{@plant_1.id}" do
       click_button 'Remove plant'
     end
 
     expect(page).to have_content(@plot_1.number)
-    expect(page).to have_content(@plant_1.name)
-    expect(page).to_not have_content(@plant_1.name)
+    expect(page).to_not have_content(@plant_1)
   end
 end
